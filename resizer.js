@@ -63,29 +63,28 @@ function checkOrientationMode() {
 }
 
 function resizeCanvas() {
-    if ((($(window).height() / $(window).width()) >= (maxAspectRatioHeight / maxAspectRatioWidth)) && option == 1) {
-        console.log("option 1");
+    if (((window.innerHeight / window.innerWidth) >= (maxAspectRatioHeight / maxAspectRatioWidth)) && option == 1) {
+
         width = maxAspectRatioWidth;
         height = maxAspectRatioHeight;
 
         maximize = false;
     }
-    else if ((($(window).height() / $(window).width()) < (minAspectRatioHeight / minAspectRatioWidth)) && option == 1) {
-        console.log("option 1");
+    else if (((window.innerHeight / window.innerWidth) < (minAspectRatioHeight / minAspectRatioWidth)) && option == 1) {
+
         width = minAspectRatioWidth;
         height = minAspectRatioHeight;
 
         maximize = false;
     }
-    else if ((($(window).height() / $(window).width()) >= (maxAspectRatioHeightPortrait / maxAspectRatioWidthPortrait)) && option == 2) {
-        console.log("option 2");
+    else if (((window.innerHeight / window.innerWidth) >= (maxAspectRatioHeightPortrait / maxAspectRatioWidthPortrait)) && option == 2) {
+
         width = maxAspectRatioWidthPortrait;
         height = maxAspectRatioHeightPortrait;
 
         maximize = false;
     }
-    else if ((($(window).height() / $(window).width()) < (minAspectRatioHeightPortrait / minAspectRatioWidthPortrait)) && option == 2) {
-        console.log("option 2");
+    else if (((window.innerHeight / window.innerWidth) < (minAspectRatioHeightPortrait / minAspectRatioWidthPortrait)) && option == 2) {
 
         width = minAspectRatioWidthPortrait;
         height = minAspectRatioHeightPortrait;
@@ -94,15 +93,14 @@ function resizeCanvas() {
     }
     else if(deviceOrientation == "landscape" && option == 3)
     {
-        console.log("option 3");
-        if ((($(window).height() / $(window).width()) >= (maxAspectRatioHeight / maxAspectRatioWidth))) {
+        if (((window.innerHeight / window.innerWidth) >= (maxAspectRatioHeight / maxAspectRatioWidth))) {
 
             width = maxAspectRatioWidth;
             height = maxAspectRatioHeight;
     
             maximize = false;
         }
-        else if ((($(window).height() / $(window).width()) < (minAspectRatioHeight / minAspectRatioWidth))) {
+        else if (((window.innerHeight / window.innerWidth) < (minAspectRatioHeight / minAspectRatioWidth))) {
     
             width = minAspectRatioWidth;
             height = minAspectRatioHeight;
@@ -120,15 +118,15 @@ function resizeCanvas() {
     }
     else if(deviceOrientation == "portrait" && option == 3)
     {
-        console.log("option 3");
-        if ((($(window).height() / $(window).width()) >= (maxAspectRatioHeightPortrait / maxAspectRatioWidthPortrait))) {
+
+        if (((window.innerHeight / window.innerWidth) >= (maxAspectRatioHeightPortrait / maxAspectRatioWidthPortrait))) {
 
             width = maxAspectRatioWidthPortrait;
             height = maxAspectRatioHeightPortrait;
     
             maximize = false;
         }
-        else if ((($(window).height() / $(window).width()) < (minAspectRatioHeightPortrait / minAspectRatioWidthPortrait))) {
+        else if (((window.innerHeight / window.innerWidth) < (minAspectRatioHeightPortrait / minAspectRatioWidthPortrait))) {
     
             width = minAspectRatioWidthPortrait;
             height = minAspectRatioHeightPortrait;
@@ -145,14 +143,14 @@ function resizeCanvas() {
         }
     }
     else if (option == 0) {
-        console.log("option 0");
+
         width = fixedAspectRatioWidth;
         height = fixedAspectRatioHeight;
 
         maximize = false;
     }
     else {
-        console.log("option 4");
+
         maximize = true;
         gameBackground.style.height = "100%";
         gameBackground.style.width = "100%";
@@ -164,7 +162,7 @@ function resizeCanvas() {
         resize();
     }
 
-    if (($(gameBackground).height() / $(gameBackground).width()) > 1) {
+    if ((gameBackground.style.height / gameBackground.style.width) > 1) {
         if (!portraitMode) {
             portraitMode = true;
             landscapeMode = false;
@@ -179,8 +177,8 @@ function resizeCanvas() {
 }
 
 function getCanvasScale() {
-    var widthScale = $(window).width() / width;
-    var heightScale = $(window).height() / height;
+    var widthScale = window.innerWidth / width;
+    var heightScale = window.innerHeight / height;
     return Math.min(widthScale, heightScale);
 };
 
